@@ -1,0 +1,58 @@
+
+/* Core : Applies globally */
+
+body {
+	margin:0px;
+	font-family:arial;
+}
+
+/* Standard : Applies to numerous elements */
+
+.bbs-standard-container {
+	width:900px;
+	min-width:90%;
+	margin:auto;
+}
+
+/* Header */
+
+.bbs-header {
+	background:#F2F2F2;
+	position:fixed;
+	border-bottom:1px solid #CCCCCC;
+	left:0px;
+	right:0px;
+	top:0px;
+}
+
+.bbs-header-push {
+	height:40px;
+}
+
+.bbs-logo {
+	padding:10px;
+}
+
+/* Header : Guest Box : Applies to guests only */
+
+.bbs-guestbox {
+	padding-top:10px;
+	padding-bottom:1px;
+}
+
+.bbs-guestbox-inner {
+	background:#B5D0FF;
+	border:1px solid #6F93D1;
+}
+
+.bbs-guestbox-inner h1 {
+	color:#3A5D99;
+	margin:0px;
+}
+
+.bbs-guestbox-text {
+	padding:10px;
+	padding-top:15px;
+	padding-bottom:5px;
+	line-height:1.5em;
+}
