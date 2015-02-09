@@ -32,8 +32,9 @@ class Database {
 		self::$db->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
 	}
 
-	public static function execute($query) {
-		return self::$db->exec($query);
+	public static function execute($query, $args = array()) {
+		$stmt = self::$db->prepare($query);
+		$stmt->execute($args);
 	}
 
 	public static function query($query, $params = array()) {

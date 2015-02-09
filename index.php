@@ -8,6 +8,9 @@
  * =================================================
  */
 
+// Start the php session manager
+session_start();
+
 // Include required files
 require_once("system/core/settings.php");
 require_once("system/core/database.php");
@@ -15,6 +18,7 @@ require_once("system/core/templates.php");
 require_once("system/core/plugins.php");
 require_once("system/core/request.php");
 require_once("system/core/response.php");
+require_once("system/core/auth.php");
 
 try {
 	// Initialize the software
