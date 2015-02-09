@@ -38,11 +38,13 @@ class Database {
 
 	public static function query($query, $params = array()) {
 		if (count($params) == 0) {
-			return self::$db->query($query);
+			$stmt = self::$db->prepare($query);
+			$stmt->execute();
+			return $stmt->fetchAll(\PDO::FETCH_OBJ);
 		} else {
 			$stmt = self::$db->prepare($query);
 			$stmt->execute($params);
-			return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+			return $stmt->fetchAll(\PDO::FETCH_OBJ);
 		}
 	}
 

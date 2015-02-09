@@ -133,7 +133,7 @@ class TemplateManager {
 	 */
 	public static function parseFile($path, $params) {
 		ob_start();
-		require_once($path);
+		include($path);
 		return ob_get_clean();
 	}
 }

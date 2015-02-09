@@ -28,12 +28,12 @@ class Core_UserFeed extends \BBStandards\Plugin {
 	 */
 	public function getHooks() {
 		return array(
-			"page.module.index" => "showWrap"
+			"plugins.userfeed.show" => "showFeed"
 		);
 	}
 
-	public function showWrap() {
-		return "";
+	public function showFeed($args) {
+		return "User Feed";
 	}
 
 }

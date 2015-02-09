@@ -60,7 +60,14 @@ class Core_IndexPage extends \BBStandards\Plugin {
 	 */
 	public function showCategories() {
 		// Read the list of categories from the database
-		$args = array("text" => "Hello, World!");
+		$table = \BBStandards\Database::table("forums");
+		$forums = \BBStandards\Database::query("SELECT parent.name AS parent_name, parent.id AS parent_id, child.name, child.id, child.description, child.icon FROM ".$table." AS parent LEFT JOIN ".$table." AS child ON child.parent = parent.id WHERE parent.parent = 0 ORDER BY parent.order, child.order");
+
+		foreach($forums as $forum) {
+			$categories[$forum->parent_id][] = $forum;
+		}
+
+		$args = array("categories" => $categories);
 
 		// Insert the data into the categorylist template
 		$html = \BBStandards\TemplateManager::parseSystemPluginTemplate("Core_IndexPage", "categorylist", $args);

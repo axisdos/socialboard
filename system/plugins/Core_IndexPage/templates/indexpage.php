@@ -13,8 +13,14 @@
 
 <div class="bbsp-core-IndexPage">
 	<div class="bbsp-core-IndexPage-inner bbs-standard-container">
-		<?php echo \BBStandards\PluginManager::hookText("plugins.indexpage.categories"); ?>
-		<?php echo \BBStandards\PluginManager::hookText("plugins.indexpage.userfeed"); ?>
+		<div class="bbsp-core-IndexPage-inner-table">
+			<div class="bbsp-core-IndexPage-inner-categorylist">
+				<?php echo \BBStandards\PluginManager::hookText("plugins.indexpage.categories"); ?>
+			</div>
+			<div class="bbsp-core-IndexPage-inner-userfeed">
+				<?php echo \BBStandards\PluginManager::hookText("plugins.userfeed.show"); ?>
+			</div>
+		</div>
 	</div>
 </div>
 
