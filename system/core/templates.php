@@ -63,12 +63,77 @@ class TemplateManager {
 		}
 
 		// Parse the template file
-		ob_start();
-		require_once($file);
-		return ob_get_clean();
+		return self::parseFile($file, $params);
 	}
 
+	/**
+	 * This takes a link relative to a theme's "public" folder, and creates
+	 * a URL relative to the website. This is required for displaying
+	 * resources which are bundled along with a theme.
+	 */
 	public static function resource($link) {
 		return self::$theme."public/$link";
+	}
+
+	/**
+	 * This method parses the specified template which belongs to the
+	 * specified plugin (system plugins only). This also allows a
+	 * theme to override the template.
+	 */
+	public static function parseSystemPluginTemplate($plugin, $template, $args) {
+		return self::parseFileOrTemplate("system/plugins/$plugin/templates/$template.php", $plugin."/".$template, $args);
+	}
+
+	/**
+	 * This method parses the specified template which belongs to the
+	 * specified plugin (non-system plugins only). This also allows a
+	 * theme to override the template.
+	 */
+	public static function parsePluginTemplate($plugin, $template, $args) {
+		return self::parseFileOrTemplate("data/plugins/$plugin/templates/$template.php", $plugin."/".$template, $args);
+	}
+
+	/**
+	 * This method parses either the specified file or the specified theme
+	 * template, whichever exists. Preference is given to the theme template.
+	 * This allows a plugin to have a default template which is overridable
+	 * by a theme. Required for good modular programming.
+	 *
+	 * This is primarily used by parsePluginTemplate(), but is conceivably
+	 * usable by other applications, so is made public.
+	 */
+	public static function parseFileOrTemplate($path, $template, $args) {
+		// Locate the file to use for the template
+		$file = self::$templates.$template.".php";
+
+		// If the file doesn't exist, find the right file
+		if (!file_exists($file)) {
+			$parents = explode(",", self::$settings["parents"]);
+			foreach ($parents as $parent) {
+				$file = "data/themes/$parent/templates/$template.php";
+				if (file_exists($file)) break;
+			}
+
+			// If the template cannot be found in the dependency list
+			if (!file_exists($file)) {
+				if (file_exists($path)) {
+					return self::parseFile($path, $args);
+				} else {
+					return "Template not found.";
+				}
+			}
+		}
+
+		return self::parseFile($file, $args);
+	}
+
+	/**
+	 * This function takes the specified path and parses it as a template.
+	 * Very, very simple.
+	 */
+	public static function parseFile($path, $params) {
+		ob_start();
+		require_once($path);
+		return ob_get_clean();
 	}
 }

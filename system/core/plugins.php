@@ -40,20 +40,16 @@ class PluginManager {
 	}
 
 	private static function loadPlugin($plugin, $dir) {
-		$dh  = opendir($dir);
-		while (false !== ($filename = readdir($dh))) {
-			if (substr($filename,0,1) == ".") continue;
-			$hook = $dir."/$filename";
-			require_once($hook);
 
-			$stripped = str_replace(".php", "", $filename);
-			$classname = "\\BBStandards\\$plugin\\$stripped";
-			$object = new $classname();
-			array_push(self::$plugins, $object);
+		$hook = "$dir/$plugin.php";
+		require_once($hook);
 
-			foreach ($object->getHooks() as $hook => $functionName) {
-				self::$hooks[$hook][] = array($object, $classname, $functionName);
-			}
+		$classname = "\\BBStandards\\$plugin\\$plugin";
+		$object = new $classname();
+		array_push(self::$plugins, $object);
+
+		foreach ($object->getHooks() as $hook => $functionName) {
+			self::$hooks[$hook][] = array($object, $classname, $functionName);
 		}
 	}
 
