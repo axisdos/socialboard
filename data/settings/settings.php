@@ -23,10 +23,11 @@ define("BBSTANDARDS_SOFTWARE_VENDOR_NAME", "BBStandards");
 define("BBSTANDARDS_SOFTWARE_VENDOR_WEBSITE", "http://bbstandards.com/");
 
 // Installation information
-define("BBSTANDARDS_WEBSITE_NAME", "My Website");
-define("BBSTANDARDS_WEBSITE_TAGLINE", "My Description");
+define("BBSTANDARDS_WEBSITE_NAME", "BBStandards Working Group");
+define("BBSTANDARDS_WEBSITE_TAGLINE", "Pioneering how forums work");
 define("BBSTANDARDS_WEBSITE_LINK", "http://localhost/socialboard/");
 define("BBSTANDARDS_WEBSITE_COPYRIGHT", "Copyright &copy; (YEAR), (NAME). All Rights Reserved.");
+define("BBSTANDARDS_WEBSITE_ICON", "system/public/BBStandards.png");
 
 // Information to connect to MySQL
 define("BBSTANDARDS_MYSQL_SERVER", "localhost");

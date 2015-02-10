@@ -19,7 +19,6 @@ body {
 	border-top:1px solid #CCCCCC;
 	border-bottom:1px solid #CCCCCC;
 	padding:7px;
-
 }
 
 /* Standard : Forms */
@@ -51,27 +50,93 @@ body {
 /* Header */
 
 .bbs-header {
-	background:#F2F2F2;
-	position:fixed;
-	border-bottom:1px solid #CCCCCC;
-	left:0px;
-	right:0px;
-	top:0px;
+	/*background:#51B046;*/
+}
+
+.bbs-header-outer {
+	background:#304473;
+}
+
+.bbs-header, .bbs-header a:link, .bbs-header a:visited, .bbs-header a {
+	color:white;
+	text-decoration:none;
 }
 
 .bbs-header-push {
-	height:40px;
+	height:10px;
 }
 
 .bbs-logo {
-	padding:10px;
+	padding-top:17px;
+	padding-bottom:17px;
+}
+
+.bbs-logo a:link, .bbs-logo a:visited, .bbs-logo {
+	text-decoration:none;
+	vertical-align:middle;
+	font-size:large;
+}
+
+.bbs-logo-icon img {
+	width:48px;
+	height:48px;
+	vertical-align:middle;
+	margin-right:10px;
+}
+
+.bbs-logo-text, .bbs-logo-icon {
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.bbs-logo-name {
+	font-size:xx-large;
+}
+
+.bbs-logo-tagline {
+	font-size:small;
+	display:none;
+}
+
+/* Header : Menu */
+
+.bbs-header-menu {
+	background:#07163A;
+}
+
+.bbs-menu-item {
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-left:5px;
+	padding-right:5px;
+}
+
+.bbs-menu-right {
+	float:right;
+}
+
+/* Header : Staff Bar */
+
+.bbsp-core-StaffBar {
+	background:#EEEEEE;
+	border-bottom:#CCCCCC;
+	padding:8px;
+}
+
+.bbsp-core-StaffBar-item {
+	display:inline-block;
+}
+
+.bbsp-core-StaffBar-item a:link, .bbsp-core-StaffBar-item a:visited, .bbsp-core-StaffBar-item a, .bbsp-core-StaffBar-item {
+	color:black;
+	text-decoration:none;
+	font-size:small;
 }
 
 /* Header : Guest Box : Applies to guests only */
 
 .bbs-guestbox {
-	padding-top:10px;
-	padding-bottom:1px;
+	padding-bottom:13px;
 }
 
 .bbs-guestbox-inner {
@@ -96,7 +161,6 @@ body {
 .bbsp-core-IndexPage-inner-table {
 	display:table;
 	width:100%;
-	padding-top:10px;
 	padding-bottom:10px;
 }
 
@@ -110,8 +174,8 @@ body {
 }
 
 .bbsp-core-IndexPage-category-forums {
-	padding-top:5px;
-	padding-bottom:10px;
+	border-bottom:3px solid #EEEEEE;
+	margin-bottom:7px;
 }
 
 .bbsp-core-IndexPage-forum-link:link, .bbsp-core-IndexPage-forum-link:visited, .bbsp-core-IndexPage-forum-link {
@@ -120,22 +184,78 @@ body {
 }
 
 .bbsp-core-IndexPage-forum {
-	padding:7px;
+	padding:9px;
+	padding-bottom:9px;
+	border-bottom:1px solid #EEEEEE;
 }
 
 .bbsp-core-IndexPage-forum-inner-name {
 	font-weight:bold;
 }
 
+.bbsp-core-IndexPage-forum-inner-icon {
+	float:left;
+	display:inline-block;
+	padding-right:8px;
+}
+
+.bbsp-core-IndexPage-forum-inner-icon img {
+	width:32px;
+	height:32px;
+}
+
 /* Auth Service : Login Widget */
 
 .bbsp-core-AuthService-loginwidget {
 	float:right;
-	padding:10px;
 }
 
 .bbsp-core-AuthService-loginwidget > div {
 	display:inline-block;
+}
+
+.bbsp-core-AuthService-memberwidget {
+	float:right;
+	background:#172A57;
+	margin-top:10px;
+	padding:0px;
+}
+
+.bbsp-core-AuthService-memberwidget-avatar {
+	height:64px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.bbsp-core-AuthService-memberwidget-user {
+	margin-bottom:4px;
+	font-size:large;
+}
+
+.bbsp-core-AuthService-memberwidget-main {
+	display:inline-block;
+	vertical-align:middle;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.bbsp-core-AuthService-memberwidget-button {
+	display:inline-block;
+	padding:3px;
+	padding-left:10px;
+	padding-right:10px;
+	margin-right:5px;
+
+	background: rgb(96,108,136);
+	background: -moz-linear-gradient(top,  rgba(96,108,136,1) 0%, rgba(63,76,107,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(96,108,136,1)), color-stop(100%,rgba(63,76,107,1)));
+	background: -webkit-linear-gradient(top,  rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
+	background: -o-linear-gradient(top,  rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
+	background: linear-gradient(to bottom,  rgba(96,108,136,1) 0%,rgba(63,76,107,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#606c88', endColorstr='#3f4c6b',GradientType=0 );
+
+
 }
 
 /* Auth Service : Register */
@@ -143,4 +263,88 @@ body {
 .bbsp-core-AuthService-register-inner {
 	padding-top:10px;
 	padding-bottom:10px;
+}
+
+/* Forum Page */
+
+.bbsp-core-ForumPage-header {
+	background:#FCFCFC;
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+	padding-top:10px;
+	padding-bottom:15px;
+}
+
+.bbsp-core-ForumPage-header-icon img {
+	width:48px;
+	height:48px;
+	margin-top:5px;
+}
+
+.bbsp-core-ForumPage-header-icon-left {
+	float:left;
+	padding-left:20px;
+}
+
+.bbsp-core-ForumPage-header-icon-right {
+	float:right;
+	padding-right:20px;
+}
+
+.bbsp-core-ForumPage-header h1, .bbsp-core-ForumPage-header h2 {
+	text-align:center;
+	font-size:15pt;
+	margin:0px;
+	line-height:1.5em;
+	font-weight:normal;
+}
+
+.bbsp-core-ForumPage-header h2 {
+	text-align:center;
+	font-size:10pt;
+}
+
+.bbsp-core-ForumPage-body {
+	padding-top:7px;
+	padding-bottom:7px;
+}
+
+.bbsp-core-ForumPage-body-table {
+	display:table;
+	width:100%;
+}
+
+.bbsp-core-ForumPage-body-threadlist {
+	display:table-cell;
+	padding-right:2px;
+}
+
+.bbsp-core-ForumPage-body-feed {
+	display:table-cell;
+	width:61.8%;
+	padding-left:2px;
+}
+
+.bbsp-core-ForumPage-body-threadlist-header {
+	background:#FCFCFC;
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDDDDD;
+	padding:8px;
+}
+
+.bbsp-core-ForumPage-body-threadlist-inner {
+}
+
+.bbsp-core-ForumPage-body-threadlist-thread {
+	padding:7px;
+	border-bottom:1px solid #E2E2E2;
+	line-height:1.2em;
+}
+
+.bbsp-core-ForumPage-body-threadlist-thread-name {
+	font-weight:bold;
+}
+
+.bbsp-core-ForumPage-body-threadlist-thread-meta {
+	font-size:small;
 }

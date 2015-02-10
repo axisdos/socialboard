@@ -8,6 +8,8 @@
  * =================================================
  */
 ?>
+
+<?php if (!\BBStandards\IdentityManager::isLoggedIn()) { ?>
 <div class="bbs-guestbox">
 	<div class="bbs-guestbox-inner bbs-standard-container">
 		<div class="bbs-guestbox-text">
@@ -16,3 +18,4 @@
 		</div>
 	</div>
 </div>
+<?php } ?>

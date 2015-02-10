@@ -14,6 +14,7 @@ class Request {
 
 	private static $link;
 	private static $page;
+	private static $args;
 
 	public static function init() {
 		self::$link = (isset($_GET["q"]))?$_GET["q"]:"/";
@@ -24,11 +25,18 @@ class Request {
 		$bits = explode("/", $link);
 
 		if (count($bits) == 0) {
+			self::$args = array();
 			return "index";
 		} else if ($bits[0] == "") {
+			self::$args = array();
 			return "index";
 		} else {
-			return $bits[0];
+			$module = array_shift($bits);
+			self::$args = $bits;
+			if (count(self::$args) > 1 && self::$args[count(self::$args)-1] == "") {
+				array_pop(self::$args);
+			}
+			return $module;
 		}
 	}
 
@@ -38,6 +46,10 @@ class Request {
 
 	public static function getPage() {
 		return self::$page;
+	}
+
+	public static function getArguments() {
+		return self::$args;
 	}
 
 

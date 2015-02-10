@@ -21,8 +21,10 @@ class Response {
 			$page = "error";
 		}
 
+		$args = \BBStandards\Request::getArguments();
+
 		$hook = "page.module.$page";
-		$content = \BBStandards\PluginManager::hookText($hook, array());
+		$content = \BBStandards\PluginManager::hookText($hook, $args);
 		return $content;
 	}
 }

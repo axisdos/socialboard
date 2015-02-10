@@ -7,11 +7,16 @@
  * Published under the terms of the MIT License
  * =================================================
  */
+
+$icon = $params["forum"]->icon;
+if ($icon == "") $icon = "system/public/ForumIcon.png";
+
 ?>
 
 <div class="bbsp-core-IndexPage-forum">
 	<?php echo \BBStandards\PluginManager::hookText("plugins.indexpage.forum.before", array("forum" => $params["forum"])); ?>
 	<a href="forum/<?php echo $params["forum"]->id ?>/" class="bbsp-core-IndexPage-forum-link"><div class="bbsp-core-IndexPage-forum-inner">
+		<div class="bbsp-core-IndexPage-forum-inner-icon"><img src="<?php echo $icon ?>" /></div>
 		<div class="bbsp-core-IndexPage-forum-inner-name"><?php echo $params["forum"]->name ?></div>
 		<div class="bbsp-core-IndexPage-forum-inner-description"><?php echo $params["forum"]->description ?></div>
 	</div></a>

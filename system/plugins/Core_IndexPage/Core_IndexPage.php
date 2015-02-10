@@ -31,7 +31,8 @@ class Core_IndexPage extends \BBStandards\Plugin {
 	public function getHooks() {
 		return array(
 			"page.module.index" => "showWrap",
-			"plugins.indexpage.categories" => "showCategories"
+			"plugins.indexpage.categories" => "showCategories",
+			"html.menu.first" => "showMenuItem"
 		);
 	}
 
@@ -74,5 +75,12 @@ class Core_IndexPage extends \BBStandards\Plugin {
 
 		// Return the data
 		return $html;
+	}
+
+	/**
+	 * This function is a hook which adds itself to the menu.
+	 */
+	public function showMenuItem() {
+		return \BBStandards\TemplateManager::parseSystemPluginTemplate("Core_IndexPage", "menuitem", array());
 	}
 }

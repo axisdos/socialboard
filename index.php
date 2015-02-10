@@ -14,6 +14,7 @@ session_start();
 // Include required files
 require_once("system/core/settings.php");
 require_once("system/core/database.php");
+require_once("system/core/hashing.php");
 require_once("system/core/templates.php");
 require_once("system/core/plugins.php");
 require_once("system/core/request.php");
@@ -28,6 +29,7 @@ try {
 	\BBStandards\PluginManager::init();
 	\BBStandards\Request::init();
 	\BBStandards\Response::init();
+	\BBStandards\IdentityManager::init();
 
 	// Call a few plugin hooks before doing anything
 	\BBstandards\PluginManager::hookAction("global.start");

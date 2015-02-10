@@ -17,21 +17,17 @@
 	<?php echo \BBStandards\PluginManager::hookText("plugins.authservice.loginwidget.firstbutton", array()); ?>
 	<?php echo \BBStandards\PluginManager::hookText("plugins.authservice.loginwidget.guest.firstbutton", array()); ?>
 
-	<div class="bbsp-core-AuthService-loginwidget-guest-login">
+	<div class="bbsp-core-AuthService-loginwidget-guest-login bbs-menu-item">
 		<a href="login">Sign in</a>
 	</div>
 
 	<?php echo \BBStandards\PluginManager::hookText("plugins.authservice.loginwidget.middle1", array()); ?>
 	<?php echo \BBStandards\PluginManager::hookText("plugins.authservice.loginwidget.guest.middle1", array()); ?>
 
-	<div class="bbsp-core-AuthService-loginwidget-guest-spacer">
-		or
-	</div>
-
 	<?php echo \BBStandards\PluginManager::hookText("plugins.authservice.loginwidget.middle2", array()); ?>
 	<?php echo \BBStandards\PluginManager::hookText("plugins.authservice.loginwidget.guest.middle2", array()); ?>
 
-	<div class="bbsp-core-AuthService-loginwidget-guest-register">
+	<div class="bbsp-core-AuthService-loginwidget-guest-register bbs-menu-item">
 		<a href="register">Register</a>
 	</div>
 
