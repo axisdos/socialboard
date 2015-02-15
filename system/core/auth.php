@@ -38,6 +38,14 @@ class IdentityManager {
 	public static function isStaff() {
 		return self::$loggedIn && self::$session->staff;
 	}
+
+	public static function isGlobalModerator() {
+		return self::$loggedIn && self::$session->mod;
+	}
+
+	public static function isAdmin() {
+		return self::$loggedIn && self::$session->admin;
+	}
 }
 
 class SecurityManager {

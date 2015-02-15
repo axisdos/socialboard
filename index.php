@@ -20,6 +20,8 @@ require_once("system/core/plugins.php");
 require_once("system/core/request.php");
 require_once("system/core/response.php");
 require_once("system/core/auth.php");
+require_once("system/core/helper.php");
+require_once("system/libraries/Michelf/MarkdownExtra.inc.php");
 
 try {
 	// Initialize the software
@@ -35,13 +37,7 @@ try {
 	\BBstandards\PluginManager::hookAction("global.start");
 
 	// Prepare the response to send to the user
-	$content = \BBStandards\Response::prepare();
-
-	// Call a  plugin hook before displaying anything
-	\BBstandards\PluginManager::hookAction("global.beforeFormat");
-
-	// Format the response into the global template
-	$html = \BBStandards\TemplateManager::parseTemplate("global", array("content" => $content));
+	$html = \BBStandards\Response::prepare();
 
 	// Call a few plugin hooks before displaying
 	\BBstandards\PluginManager::hookAction("global.beforeDisplay");

@@ -18,7 +18,7 @@
 				<?php echo \BBStandards\PluginManager::hookText("plugins.indexpage.categories"); ?>
 			</div>
 			<div class="bbsp-core-IndexPage-inner-userfeed">
-				<?php echo \BBStandards\PluginManager::hookText("plugins.userfeed.show"); ?>
+				<?php echo \BBStandards\PluginManager::hookText("plugins.alerts.sidebar.show", array()); ?>
 			</div>
 		</div>
 	</div>

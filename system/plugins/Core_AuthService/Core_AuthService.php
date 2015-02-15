@@ -91,7 +91,8 @@ class Core_AuthService extends \BBStandards\Plugin {
 					"CASE WHEN forumpermission.view = 1 THEN '1' ELSE '0' END AS forum_default_view, ".
 					"CASE WHEN forumpermission.read = 1 THEN '1' ELSE '0' END AS forum_default_read, ".
 					"CASE WHEN forumpermission.post = 1 THEN '1' ELSE '0' END AS forum_default_post, ".
-					"CASE WHEN forumpermission.start = 1 THEN '1' ELSE '0' END AS forum_default_start ".
+					"CASE WHEN forumpermission.start = 1 THEN '1' ELSE '0' END AS forum_default_start, ".
+					"CASE WHEN assignment.primary = 1 THEN assignment.group ELSE NULL END AS primary_group ".
 				"FROM ".$sessionTable." AS session ".
 					"LEFT JOIN ".$userTable." AS user ON session.user = user.id ".
 					"LEFT JOIN ".$assignTable." AS assignment ON session.user = assignment.user ".

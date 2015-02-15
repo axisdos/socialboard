@@ -1,0 +1,43 @@
+
+body {
+	margin:0px;
+	font-family:arial;
+}
+
+.admin-header {
+	background:#2F4275;
+	border-bottom:3px solid #182A5B;
+	color:white;
+}
+
+.admin-logo {
+	font-size:xx-large;
+	padding:30px;
+}
+
+.admin-menu {
+	float:right;
+	background:#07163E;
+	margin:8px;
+	margin-right:15px;
+	color:white;
+	padding-left:7px;
+	padding-right:7px;
+}
+
+.admin-menu-item {
+	padding:10px;
+	display:inline-block;
+	text-align:center;
+}
+
+.admin-menu-item img {
+	width:32px;
+	height:32px;
+	padding:3px;
+}
+
+.admin-menu a:link, .admin-menu a:visited, .admin-menu a {
+	color:white;
+	text-decoration:none;
+}
