@@ -54,7 +54,6 @@ class PluginManager {
 	}
 
 	public static function hook($name, $args = array()) {
-
 		if (!array_key_exists($name, self::$hooks)) return array();
 
 		$values = array();
@@ -145,6 +144,21 @@ class PluginManager {
 
 	public static function hookText($name, $args = array()) {
 		return self::hookAppend($name, $args);
+	}
+
+	public static function hookModify($name, $text, $args) {
+		if (!array_key_exists($name, self::$hooks)) return array();
+
+		foreach(self::$hooks[$name] as $hook) {
+			$object = $hook[0];
+			$class = $hook[1];
+			$method = $hook[2];
+
+			$reflectionMethod = new \ReflectionMethod($class, $method);
+			$text = $reflectionMethod->invoke($object, $text, $args);
+		}
+
+		return $text;
 	}
 }
 

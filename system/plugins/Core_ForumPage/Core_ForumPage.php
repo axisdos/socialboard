@@ -136,6 +136,7 @@ class Core_ForumPage extends \BBStandards\Plugin {
 		if (isset($_POST["name"])) {
 			$name = htmlentities(stripslashes($_POST["name"]));
 			$content = htmlentities(stripslashes($_POST["content"]));
+			$parsed = \BBstandards\PluginManager::hookModify("plugins.parse.usertext", $content, array("forum" => $forum));
 			$valid = \BBStandards\PluginManager::hookAnd("plugins.forumpage.newtopic.validate", array("forum" => $forum, "name" => $name, "content" => $content));
 
 			if ($valid) {
@@ -146,7 +147,7 @@ class Core_ForumPage extends \BBStandards\Plugin {
 				\BBStandards\Database::execute(
 					"INSERT INTO $discussionTable ".
 					"(forum, name, owner, `created`, bumped) VALUES ".
-					"(?, ?, ?, ?)",
+					"(?, ?, ?, ?, ?)",
 					array($forum->forum_id, $name, IdentityManager::getSession()->user_id, time(), time())
 				);
 
@@ -156,7 +157,7 @@ class Core_ForumPage extends \BBStandards\Plugin {
 					"INSERT INTO $replyTable ".
 					"(discussion, poster, content, parsed, `created`) VALUES ".
 					"(?, ?, ?, ?, ?)",
-					array($discussionId, IdentityManager::getSession()->user_id, $content, $content, time())
+					array($discussionId, IdentityManager::getSession()->user_id, $content, $parsed, time())
 				);
 
 				header("Location: ".BBSTANDARDS_WEBSITE_LINK."discussion/$discussionId/");

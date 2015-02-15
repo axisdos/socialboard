@@ -485,8 +485,8 @@ textarea.bbs-form-field-textarea {
 }
 
 .bbsp-core-TopicPage-post-table-content-speaker {
-	margin-bottom:7px;
 	font-weight:bold;
+	margin-bottom:10px;
 }
 
 .bbsp-core-TopicPage-post-table-content-controls {
@@ -508,6 +508,15 @@ textarea.bbs-form-field-textarea {
 .bbsp-core-TopicPage-post-table-content-speaker a:link, .bbsp-core-TopicPage-post-table-content-speaker a:visited, .bbsp-core-TopicPage-post-table-content-speaker a {
 	color:black;
 	text-decoration:none;
+}
+
+.bbsp-core-TopicPage-post-table-content-text {
+	line-height:1.5em;
+}
+
+.bbsp-core-TopicPage-post-table-content-text > p {
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 .bbsp-core-TopicPage-quickreply {

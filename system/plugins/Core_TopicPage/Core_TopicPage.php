@@ -115,6 +115,7 @@ class Core_TopicPage extends \BBStandards\Plugin {
 	public function processPostQuickReply($topic) {
 		$content = htmlentities(stripslashes($_POST["content"]));
 		$valid = \BBStandards\PluginManager::hookAnd("plugins.topicpage.newreply.validate", array("topic" => $topic, "content" => $content));
+		$parsed = \BBstandards\PluginManager::hookModify("plugins.parse.usertext", $content, array("topic" => $topic));
 
 		if ($valid) {
 			$discussionId = $topic->topic_id;
@@ -124,7 +125,7 @@ class Core_TopicPage extends \BBStandards\Plugin {
 				"INSERT INTO $replyTable ".
 				"(discussion, poster, content, parsed, `created`) VALUES ".
 				"(?, ?, ?, ?, ?)",
-				array($discussionId, \BBStandards\IdentityManager::getSession()->user_id, $content, $content, time())
+				array($discussionId, \BBStandards\IdentityManager::getSession()->user_id, $content, $parsed, time())
 			);
 
 			header("Location: ".BBSTANDARDS_WEBSITE_LINK."discussion/".$discussionId."/");
